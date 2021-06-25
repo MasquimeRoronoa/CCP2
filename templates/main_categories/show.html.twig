@@ -1,0 +1,76 @@
+{% extends 'base2.html.twig' %}
+
+{% block title %}Hello MainCategoriesController!{% endblock %}
+
+{% block body %}
+
+    <main class="row overflow-auto" id="corps">
+
+
+
+
+
+        <div class="col-6">
+                {% for categorie in categoriess %}
+
+                    <h1 style="text-align: center"> {{ categorie.NomCategories }}</h1>
+
+                {% endfor %}</div>
+
+            <div class="col-6">
+                <h1 style="text-align: center">EXIF :</h1>
+            </div>
+
+            <div class="col-5">
+            <img src="" class="d-block w-100 miel m-auto" alt="Afficher une photo du footer" style="width: 500px; height: 350px;" >
+
+                    </div>
+
+
+
+            <div class="col-3 m-auto" >
+                <h5> Photographe : <p id="p1"></p></h5>
+                <h5> Appareil : <p id="p3"></p></h5>
+                <h5> Dimension : <p id="p5"></p></h5>
+                <h5> Vitesse d'Obturation : <p id="p6"></p></h5>
+                <h5> Focale : <p id="p8"></p></h5>
+
+            </div>
+
+            <div class="col-3 m-auto">
+                <h5> Technique : <p id="p2"></p></h5>
+                <h5> Objectif : <p id="p4"></p></h5>
+                <h5> ISO : <p id="p7"></p></h5>
+                <h5> Focale : <p id="p8"></p></h5>
+
+            </div>
+
+
+
+    </main>
+
+    <footer class="containere row" id="pied">
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner passion">
+                <div class="carousel-item active a8">
+                    {% for categorie in categories %}
+                    <img src="{{ vich_uploader_asset(categorie, "imageFile") }}" style="width: 200px; height: 150px;" class="imgfoot" data-dimension="{{ categorie.DimensionPhoto }}" data-vitesse="{{ categorie.VitessePhoto }}"
+                         data-ouverture="{{ categorie.OuverturePhoto }}" data-iso="{{ categorie.IsoPhoto }}" data-focale="{{ categorie.FocalePhoto }}" data-objectif="{{ categorie.ObjectifPhoto }}"
+                         data-appareil="{{ categorie.AppareilPhoto }}" data-tech="{{ categorie.techniques.NomTechnique }}" data-photographe="{{ categorie.photographe.NomPhotographe }}" data-photographe2="{{ categorie.photographe.PrenomPhotographe }}">
+                    {% endfor %}
+
+                </div>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            </a>
+        </div>
+
+    </footer>
+
+
+{% endblock %}

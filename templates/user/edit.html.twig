@@ -1,0 +1,15 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Modifier un Utilisateur{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Modifier un Utilisateur</h1>
+
+    {{ include('user/_form.html.twig', {'button_label': 'Update'}) }}
+
+        <a href="{{ path('user_index') }}"><button class="btn btn-primary">Retour à la Liste</button></a>
+
+    {{ include('user/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

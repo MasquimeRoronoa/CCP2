@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainTechniquesController!{% endblock %}
+
+{% block body %}
+
+
+    <main class="row overflow-auto" id="corps">
+
+        {% for techniques in technique %}
+            <div class="card col-md-3">
+
+
+
+                <img src="{{ vich_uploader_asset(techniques, "imageFile") }}" class="card-img-top" alt="Source d'une image au hasard de cette catégorie">
+                <div class="card-body">
+
+                    <h5 class="card-title">{{techniques.NomTechnique}}</h5>
+
+
+                    <p class="card-text">{{techniques.DescCourteTechnique}}</p>
+
+                    <a href="{{ path('techniques_detail', {'id': techniques.id}) }}" class="btn btn-primary">Ouvrir dans une page detail la catégorie avec son carousel</a>
+                </div>
+
+            </div>
+        {% endfor %}
+
+
+    </main>
+
+
+{% endblock %}

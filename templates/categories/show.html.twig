@@ -1,0 +1,40 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Categories{% endblock %}
+
+{% block body %}
+<div class="content-wrapper">
+    <h1>Categories</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ category.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ category.NomCategories }}</td>
+            </tr>
+            <tr>
+                <th>Descripton Courte</th>
+                <td>{{ category.DescCourteCategories }}</td>
+            </tr>
+            <tr>
+                <th>Description Longue</th>
+                <td>{{ category.DescLongueCategories }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td><img src="{{ vich_uploader_asset(category, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('categories_index') }}"><button class="btn btn-primary"> Retour à la Liste </button></a>
+
+    <a href="{{ path('categories_edit', {'id': category.id}) }}"><button class="btn btn-danger">Editer</button></a>
+
+    {{ include('categories/_delete_form.html.twig') }}
+</div>
+{% endblock %}

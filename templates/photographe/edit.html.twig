@@ -1,0 +1,15 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Modifier un Photographe{% endblock %}
+
+{% block body %}
+<div class="content-wrapper">
+    <h1>Modifier un Photographe</h1>
+
+    {{ include('photographe/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    <a href="{{ path('photographe_index') }}"><button class="btn btn-primary"> Retour à la Liste </button></a>
+
+    {{ include('photographe/_delete_form.html.twig') }}
+</div>
+{% endblock %}

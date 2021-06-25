@@ -1,0 +1,29 @@
+{{ form_start(form) }}
+
+<div class="mb-3">
+    <h4 class="mb-0"> Nom : </h4>
+    {{ form_row(form.NomContact) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Prénom : </h4>
+    {{ form_row(form.PrenomContact) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Mail : </h4>
+    {{ form_row(form.MailContact) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Sujet : </h4>
+    {{ form_row(form.SujetContact) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Message : </h4>
+    {{ form_row(form.MessageContact) }}
+</div>
+
+    <button class="btn btn-success">{{ button_label|default('Envoyer') }}</button>
+{{ form_end(form) }}

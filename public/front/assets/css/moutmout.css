@@ -1,0 +1,21 @@
+.imgfoot {
+    justify-content: center;
+}
+
+.passion {
+    text-align: center;
+}
+
+.containere {
+    display: flex;
+    width: 100%;
+    margin: 0 auto 0 auto;
+    justify-content: center;
+}
+.carousel-control-next {
+    width: 7%;
+}
+
+.carousel-control-prev {
+    width: 7%;
+}

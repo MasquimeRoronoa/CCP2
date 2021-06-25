@@ -1,0 +1,25 @@
+{{ form_start(form) }}
+
+<div class="mb-3">
+    <h4 class="mb-0"> Nom : </h4>
+    {{ form_row(form.NomTechnique) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Description Courte : </h4>
+    {{ form_row(form.DescCourteTechnique) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Description Longue : </h4>
+    {{ form_row(form.DescLongueTechnique) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Photo : </h4>
+    {{ form_row(form.imageFile) }}
+</div>
+
+
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

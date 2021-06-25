@@ -1,0 +1,43 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Liste des Categories{% endblock %}
+
+{% block body %}
+<div class="content-wrapper">
+    <h1>Liste des Categories</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description Courte</th>
+                <th>Description Longue</th>
+                <th>Photo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.NomCategories }}</td>
+                <td>{{ category.DescCourteCategories }}</td>
+                <td>{{ category.DescLongueCategories|u.truncate(50) }}<a href="{{ path('categories_show', {'id': category.id}) }}">...</a></td>
+                <td><img src="{{ vich_uploader_asset(category, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+                <td>
+                    <a href="{{ path('categories_show', {'id': category.id}) }}"><button class="btn btn-primary">Voir</button> </a>
+                    <a href="{{ path('categories_edit', {'id': category.id}) }}"><button class="btn btn-danger">Editer</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune Catégorie</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('categories_new') }}"><button class="btn btn-success">Ajouter une Catégorie</button></a>
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+{{ form_start(form) }}
+
+<div class="mb-3">
+    <h4 class="mb-0"> Mail : </h4>
+    {{ form_row(form.email) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Mot de Passe : </h4>
+    {{ form_row(form.password) }}
+</div>
+
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

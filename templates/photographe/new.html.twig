@@ -1,0 +1,13 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Ajouter un Photographe{% endblock %}
+
+{% block body %}
+<div class="content-wrapper">
+    <h1>Ajouter un Photographe</h1>
+
+    {{ include('photographe/_form.html.twig') }}
+
+    <a href="{{ path('photographe_index') }}"><button class="btn btn-primary">Retour à la Liste</button> </a>
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Photos{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Photos</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ photo.id }}</td>
+            </tr>
+            <tr>
+                <th>TitrePhoto</th>
+                <td>{{ photo.TitrePhoto }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td><img src="{{ vich_uploader_asset(photo, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+            </tr>
+            <tr>
+                <th>Date Photo</th>
+                <td>{{ photo.DatePhoto ? photo.DatePhoto|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Dimension</th>
+                <td>{{ photo.DimensionPhoto }}</td>
+            </tr>
+            <tr>
+                <th>Vitesse d'Obturation</th>
+                <td>{{ photo.VitessePhoto }}</td>
+            </tr>
+            <tr>
+                <th>Ouverture</th>
+                <td>{{ photo.OuverturePhoto }}</td>
+            </tr>
+            <tr>
+                <th>ISO</th>
+                <td>{{ photo.IsoPhoto }}</td>
+            </tr>
+            <tr>
+                <th>Focale</th>
+                <td>{{ photo.FocalePhoto }}</td>
+            </tr>
+            <tr>
+                <th>Objectif</th>
+                <td>{{ photo.ObjectifPhoto }}</td>
+            </tr>
+            <tr>
+                <th>Appareil</th>
+                <td>{{ photo.AppareilPhoto }}</td>
+            </tr>
+            <tr>
+                <th>Catégorie</th>
+                <td>{{ photo.categories.NomCategories}}</td>
+            </tr>
+            <tr>
+                <th>Tecnhique</th>
+                <td>{{ photo.techniques.NomTechnique}}</td>
+            </tr>
+            <tr>
+                <th>Photographe</th>
+                <td>{{ photo.photographe.NomPhotographe}} {{ photo.photographe.PrenomPhotographe}}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('photos_index') }}"><button class="btn btn-primary">Retour à la Liste</button> </a>
+
+    <a href="{{ path('photos_edit', {'id': photo.id}) }}"><button class="btn btn-danger">Editer</button> </a>
+
+    {{ include('photos/_delete_form.html.twig') }}
+    </div>
+{% endblock %}

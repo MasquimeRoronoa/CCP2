@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello MainCategoriesController!{% endblock %}
+
+{% block body %}
+
+    <main class="row overflow-auto" id="corps">
+
+        <!-- a implémenter en fonction du contenu de la bdd et adpater par rapport au css avec les bonnes classes bootstrap 4 éléments max sur la lageur pour pc 2 pour tablet et 1 pour smartphone
+
+        A vous de mettre les cards dans le bon type de classe bootstrap
+
+
+        Faites bien attention aux liens pour la redirection des pages.
+        -->
+        {% for categories in categorie %}
+        <div class="card col-md-3">
+
+            <!--
+            image de la catégorie (logo) issue de la bdd
+            -->
+
+            <img src="{{ vich_uploader_asset(categories, "imageFile") }}" class="card-img-top" alt="Source d'une image au hasard de cette catégorie">
+            <div class="card-body">
+                <!--
+                titre de la catégorie
+                -->
+                <h5 class="card-title">{{categories.NomCategories}}</h5>
+                <!--
+                description courte de la catégorie
+                -->
+                <p class="card-text">{{categories.DescCourteCategories}}</p>
+                <!--
+                Lien vers la page détails le chemin de cette page detail depend de l'id de la catégorie exemple /details/cat/1 pour la catégorie 1
+                -->
+                <a href="{{ path('categories_detail', {'id': categories.id}) }}" class="btn btn-primary">Ouvrir dans une page detail la catégorie avec son carousel</a>
+            </div>
+
+        </div>
+        {% endfor %}
+
+
+    </main>
+
+{% endblock %}

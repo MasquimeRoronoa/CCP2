@@ -1,0 +1,43 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Liste des Messages{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Boite de Récéption</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Mail</th>
+                <th>Sujet</th>
+                <th>Message</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td>{{ contact.id }}</td>
+                <td>{{ contact.NomContact }}</td>
+                <td>{{ contact.PrenomContact }}</td>
+                <td>{{ contact.MailContact }}</td>
+                <td>{{ contact.SujetContact }}</td>
+                <td>{{ contact.MessageContact|u.truncate(50) }} <a href="{{ path('contact_show', {'id': contact.id}) }}">...</a></td>
+                <td>
+                    <a href="{{ path('contact_show', {'id': contact.id}) }}"><button class="btn btn-primary">Voir</button> </a>
+                    {{ include('contact/_delete_form.html.twig') }}
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Aucun Message</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock %}

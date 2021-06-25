@@ -1,0 +1,43 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Liste des Photos{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Liste des Photos</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Photo</th>
+                <th>Date</th>
+                <th>EXIF</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for photo in photos %}
+            <tr>
+                <td>{{ photo.id }}</td>
+                <td>{{ photo.TitrePhoto }}</td>
+                <td><img src="{{ vich_uploader_asset(photo, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+                <td>{{ photo.DatePhoto ? photo.DatePhoto|date('d-m-Y') : '' }}</td>
+                <td>{{ photo.DimensionPhoto }} <a href="{{ path('photos_show', {'id': photo.id}) }}">... </a></td>
+                <td>
+                    <a href="{{ path('photos_show', {'id': photo.id}) }}"><button class="btn btn-primary">Voir</button> </a>
+                    <a href="{{ path('photos_edit', {'id': photo.id}) }}"><button class="btn btn-danger">Editer</button> </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="12">Aucune Photo</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('photos_new') }}"><button class="btn-success">Ajouter une Photo</button> </a>
+    </div>
+{% endblock %}

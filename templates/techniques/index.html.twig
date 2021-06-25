@@ -1,0 +1,43 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Liste des Techniques{% endblock %}
+
+{% block body %}
+    <div class="content-wrapper">
+    <h1>Liste des Techniques</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Description Courte</th>
+                <th>Description Longue</th>
+                <th>Photo</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for technique in techniques %}
+            <tr>
+                <td>{{ technique.id }}</td>
+                <td>{{ technique.NomTechnique }}</td>
+                <td>{{ technique.DescCourteTechnique }}</td>
+                <td>{{ technique.DescLongueTechnique|u.truncate(50) }}<a href="{{ path('techniques_show', {'id': technique.id}) }}">...</a></td>
+                <td><img src="{{ vich_uploader_asset(technique, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+                <td>
+                    <a href="{{ path('techniques_show', {'id': technique.id}) }}"><button class="btn btn-primary"> Voir</button> </a>
+                    <a href="{{ path('techniques_edit', {'id': technique.id}) }}"><button class="btn btn-danger">Editer</button> </a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucune Technique</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('techniques_new') }}"><button class="btn btn-success">Ajouter une Technique</button> </a>
+    </div>
+{% endblock %}

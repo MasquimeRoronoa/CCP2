@@ -1,0 +1,69 @@
+{{ form_start(form) }}
+
+<div class="mb-3">
+    <h4 class="mb-0"> Titre : </h4>
+    {{ form_row(form.TitrePhoto) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Photo : </h4>
+    {{ form_row(form.imageFile) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Dimension : </h4>
+    {{ form_row(form.DimensionPhoto) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Date : </h4>
+    {{ form_row(form.DatePhoto) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Vitesse : </h4>
+    {{ form_row(form.VitessePhoto) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Ouverture : </h4>
+    {{ form_row(form.OuverturePhoto) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> ISO : </h4>
+    {{ form_row(form.IsoPhoto) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Focale : </h4>
+    {{ form_row(form.FocalePhoto) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Objectif : </h4>
+    {{ form_row(form.ObjectifPhoto) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Appareil : </h4>
+    {{ form_row(form.AppareilPhoto) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Catégorie : </h4>
+    {{ form_row(form.categories) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Technique : </h4>
+    {{ form_row(form.techniques) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Photographe : </h4>
+    {{ form_row(form.photographe) }}
+</div>
+
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}

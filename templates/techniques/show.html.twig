@@ -1,0 +1,40 @@
+{% extends 'baseAdmin.html.twig' %}
+
+{% block title %}Techniques{% endblock %}
+
+{% block body %}
+<div class="content-wrapper">
+    <h1>Techniques</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ technique.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ technique.NomTechnique }}</td>
+            </tr>
+            <tr>
+                <th>Descritpion Courte</th>
+                <td>{{ technique.DescCourteTechnique }}</td>
+            </tr>
+            <tr>
+                <th>Description Longue</th>
+                <td>{{ technique.DescLongueTechnique }}</td>
+            </tr>
+            <tr>
+                <th>Photo</th>
+                <td><img src="{{ vich_uploader_asset(technique, "imageFile") }}" style="width: 200px; height: 150px;" alt=""></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('techniques_index') }}"><button class="btn btn-primary">Retour à la Liste</a>
+
+    <a href="{{ path('techniques_edit', {'id': technique.id}) }}"><button class="btn btn-danger">Editer</button> </a>
+
+    {{ include('techniques/_delete_form.html.twig') }}
+</div>
+{% endblock %}

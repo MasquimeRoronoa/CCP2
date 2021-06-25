@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Rudy Art Wall{% endblock %}
+
+{% block body %}
+
+    <main class="row overflow-auto" id="corps">
+        {% for photographes in photographe %}
+        <div class="col-sm-8">
+
+
+            <!-- information sur le photogrpahe
+            NOM et Prenom provenant de la BDD
+
+
+            Puis la description du photographe provenant de la BDD ( le lorem ipsum est autorisé pour les descriptions)
+
+
+            -->
+            <h1> <a href="{{ path('photographe_detail', {'id': photographes.id}) }}" style="text-decoration: none; color: #BC0024">{{ photographes.NomPhotographe }} {{ photographes.PrenomPhotographe }}</a> </h1>
+
+            <h2> Description : </h2>
+
+            <p>
+                {{ photographes.DescPhotographe }}
+            </p>
+
+            <p><a href="{{ path('photographe_detail', {'id': photographes.id}) }}"><button class="btn btn-success">Voir les Photos</button></a> </p>
+        </div>
+        <div class="col-sm-4 d-flex justify-content-center align-items-center">
+
+            <!-- image du photographe provenant de la bdd-->
+
+            <a href="{{ path('photographe_detail', {'id': photographes.id}) }}"> <img src="{{ vich_uploader_asset(photographes, "imageFile") }}" class="img-fluid" style="width:450px; height:550px; margin-bottom: 5%" alt="welcome"></a>
+        </div>
+
+        {% endfor %}
+    </main>
+
+{% endblock %}

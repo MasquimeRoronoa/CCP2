@@ -1,0 +1,29 @@
+{{ form_start(form) }}
+
+<div class="mb-3">
+    <h4 class="mb-0"> Nom : </h4>
+    {{ form_row(form.NomPhotographe) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Prenom : </h4>
+    {{ form_row(form.PrenomPhotographe) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Mail : </h4>
+    {{ form_row(form.MailPhotographe) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Descritpion : </h4>
+    {{ form_row(form.DescPhotographe) }}
+</div>
+
+<div class="mb-3">
+    <h4 class="mb-0"> Photo : </h4>
+    {{ form_row(form.imageFile) }}
+</div>
+
+    <button class="btn btn-success">{{ button_label|default('Enregistrer') }}</button>
+{{ form_end(form) }}
